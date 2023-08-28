@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Вход{% endblock %}
+
+{% block content %}
+<div class="content-container">
+    <div class="error-message">
+        <p>{{ error_message }}</p>
+    </div>
+    <div class="login-box">
+        <h1>Регистрация</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="user-box">
+                <input type="text" name="email" required="" value="{{ email }}">
+                <label>Email</label>
+            </div>
+            <div class="user-box">
+                <input type="text" name="username" required="" value="{{ username }}">
+                <label>Имя пользователя</label>
+            </div>
+            <div class="user-box">
+                <input type="password" name="password" required="">
+                <label>Пароль</label>
+            </div>
+            <div class="user-box">
+                <input type="password" name="password2" required="">
+                <label>Подтверждение пароля</label>
+            </div>
+            <button id="submitButton" type="submit"></button>
+            <a href="#" onclick="document.getElementById('submitButton').click();">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Submit
+            </a>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

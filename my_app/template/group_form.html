@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Группы{% endblock %}
+
+{% block content %}
+<div class="content-container">
+    <div class="error-message">
+        <p>{{ error_message }}</p>
+    </div>
+    <form class="create-group" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-light" type="submit">Создать</button>
+    </form>
+</div>
+{% endblock %}
